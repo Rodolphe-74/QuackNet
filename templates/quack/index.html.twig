@@ -1,0 +1,92 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+    <div class="profileTitle">
+        <h3> Au fil des Quacks ... </h3>
+    </div>
+    {% for quack in quacks %}
+        {% if (quack.parent == null) %}
+            <div class="messageBlock">
+                <div class="quackInfos">
+                    <div class="quackProfile">
+                        <div><img class="quackImage" src="{{ quack.duck.image }}"></div>
+                        <div><a class="nav-link active white" aria-current="page" href="{{ path('profile_id',{'duckname':quack.duck.duckname}) }}"> {{ quack.duck.duckname }} </a></div>
+                    </div>
+                    <div class="date"> Posté le {{ quack.createdAt ? quack.createdAt|date('Y-m-d H:i:s') : '' }}</div>
+                </div>
+                {% if (quack.image == null) %}
+                    <div class="marginBottomLeft">{{ quack.content }}</div>
+                {%  else  %}
+                    <div class="messageImage">
+                        <div class="marginRight">{{ quack.content }}</div>
+                        <div><img class="quackImage" src="{{ quack.image }}"></div>
+                    </div>
+                {%  endif %}
+
+                {% if (is_granted("IS_AUTHENTICATED_FULLY")) and (app.user.email  == quack.duck.email ) %}
+                    <div class="messageFooter">
+                        <div class="buttons">
+                            <a class="button" href="{{ path('quack_show', {'id': quack.id}) }}">show</a>
+                            <a class="button" href="{{ path('quack_edit', {'id': quack.id}) }}">edit</a>
+                        </div>
+                    </div>
+                {% endif %}
+                {% if (is_granted("IS_AUTHENTICATED_FULLY")) and (app.user.email  != quack.duck.email ) %}
+                    <div class="messageFooter">
+                        <div class="buttons">
+                            <a class="button" href="{{ path('quack_newComment', {'id': quack.id}) }}"> Commenter </a>
+                        </div>
+                    </div>
+                {% endif %}
+
+            {% for quackComment in quack.children %}
+                <div class="commentLine">
+                    <div class="quackContent">
+                        <div class="comment">
+                            {% if (quackComment.image == null) %}
+                                <div>{{ quackComment.content }}</div>
+                            {%  else  %}
+                                <div class="messageImage">
+                                    <div class="marginRight">{{ quackComment.content }}</div>
+                                    <div><img class="quackImage" src="{{ quackComment.image }}"></div>
+                                </div>
+                            {%  endif %}
+                        </div>
+                        <div class="marginTop">
+                            {% if ((is_granted("IS_AUTHENTICATED_FULLY")) and (app.user.email  == quack.duck.email )) or ((is_granted("IS_AUTHENTICATED_FULLY")) and (app.user.email == quackComment.duck.email)) %}
+                                <div>
+                                    <div class="buttons">
+                                        <a class="button" href="{{ path('quack_delete', {'id': quackComment.id}) }}"> Supprimer </a>
+                                    </div>
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="quackIdentifiants">
+                        <div class="quackProfile">
+                            <div><a class="nav-link active white noPadding" aria-current="page" href="{{ path('profile_id',{'duckname':quackComment.duck.duckname}) }}"> {{ quackComment.duck.duckname }} </a></div>
+                            <div><img class="quackCommentImage" src="{{ quackComment.duck.image }}"></div>
+                        </div>
+                        <div>
+                            <div class="date"> Posté le {{ quackComment.createdAt ? quackComment.createdAt|date('Y-m-d') : '' }}</div>
+                        </div>
+
+                    </div>
+                </div>
+            {% endfor %}
+            </div>
+{#        {% else %}#}
+{#            <tr>#}
+{#                <td colspan="4">no records found</td>#}
+{#            </tr>#}
+        {% endif %}
+    {% endfor %}
+
+    {% if (is_granted("IS_AUTHENTICATED_FULLY")) %}
+        <div class="buttonCenter">
+            <a class="profileButton" href="{{ path('quack_new') }}">Create new</a>
+        </div>
+    {%  endif %}
+
+{% endblock %}

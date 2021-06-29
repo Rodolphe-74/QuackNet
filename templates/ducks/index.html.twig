@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+    <h3>Duckindex</h3>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Email</th>
+            <th>firstname</th>
+            <th>lastname</th>
+            <th>duckname</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for ducks in ducks %}
+            <tr>
+                <td>{{ ducks.id }}</td>
+                <td>{{ ducks.email }}</td>
+                <td>{{ ducks.firstname }}</td>
+                <td>{{ ducks.lastname }}</td>
+                <td>{{ ducks.duckname }}</td>
+{#                <td>#}
+{#                    <a href="{{ path('quack_show', {'id': quack.id}) }}">show</a>#}
+{#                    <a href="{{ path('quack_edit', {'id': quack.id}) }}">edit</a>#}
+{#                </td>#}
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{#    <a href="{{ path('quack_new') }}">Create new</a>#}
+{% endblock %}

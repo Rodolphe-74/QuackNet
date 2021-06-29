@@ -1,0 +1,207 @@
+.background{
+    height:3000px;
+    background-color: #BCC0BB;
+    display:flex;
+    justify-content: center;
+}
+
+.main{
+    width:70%;
+    background-color: rgba(255,255,255,0.5);
+}
+
+.messageBlock{
+    width:50%;
+    margin : 20px auto;
+    background-color: #545150 ;
+    border-radius: 10px;
+    border: 0.1rem solid;
+    color:white;
+}
+
+.userName{
+
+}
+
+.content{
+    text-align: center;
+}
+
+.messageFooter{
+    display: flex;
+    justify-content: right;
+    margin: 10px;
+    margin-top: 20px;
+}
+
+.date{
+    font-size: 11px ;
+    font-style:italic;
+}
+
+.buttons{
+    width:80px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.button{
+    text-decoration:none;
+    color:white;
+    font-size: 11px;
+    background-color: darkgreen;
+    text-align: center;
+    border-radius: 5px;
+    padding:5px
+}
+
+.navbarCSS{
+    width:70%;
+}
+
+.navGap{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.form{
+    width:70%;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+.center{
+    text-align: center;
+    margin: 15px auto;
+}
+
+.blackbutton{
+    background-color: black;
+    border-color: black;
+    color: white;
+}
+
+.registerlink{
+    color: black;
+}
+
+.profileTitle{
+    margin: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.profileInfos{
+    margin: 50px;
+    padding: 20px;
+    border-radius: 10px;
+    text-align:center;
+    background-color: #BCC0BB;
+}
+
+.image{
+    border-radius: 10px;
+    max-width: 100%;
+    height : 120px;
+}
+
+.profileButton{
+    text-decoration: none;
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+    text-align: center;
+    padding:10px;
+}
+
+.buttonCenter{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.quackInfos{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin : 10px;
+    background-color: black;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.quackProfile{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.quackImage{
+    border-radius: 5px;
+    max-width: 100%;
+    height : 50px;
+    margin-right: 20px;
+}
+
+.messageImage{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin : 10px;
+}
+
+.marginRight{
+    margin-right: 20px;
+}
+
+.marginBottomLeft{
+    margin-bottom: 10px;
+    margin-left: 10px;
+}
+
+.white{
+    text-decoration:none;
+    color:white;
+}
+
+.quackIdentifiants {
+    padding: 10px;
+}
+
+.quackContent{
+    padding: 10px;
+}
+
+.commentLine{
+    margin : 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #284B28;
+    border-radius: 10px;
+}
+
+.comment{
+    font-size: 13px;
+}
+
+.quackCommentImage{
+    border-radius: 15px;
+    max-width: 100%;
+    height : 30px;
+}
+
+.noPadding{
+    padding-left: 0;
+}
+
+.marginTop{
+    margin-top: 5px;
+}
