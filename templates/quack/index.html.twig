@@ -24,7 +24,8 @@
                     </div>
                 {%  endif %}
 
-                {% if (is_granted("IS_AUTHENTICATED_FULLY")) and (app.user.email  == quack.duck.email ) %}
+{#                {% if (is_granted("QUACK_EDIT", quack)) %}#}
+                {% if ((is_granted("IS_AUTHENTICATED_FULLY")) and (app.user.email  == quack.duck.email )) or (is_granted("ROLE_ADMIN")) %}
                     <div class="messageFooter">
                         <div class="buttons">
                             <a class="button" href="{{ path('quack_show', {'id': quack.id}) }}">show</a>
@@ -32,7 +33,7 @@
                         </div>
                     </div>
                 {% endif %}
-                {% if (is_granted("IS_AUTHENTICATED_FULLY")) and (app.user.email  != quack.duck.email ) %}
+                {% if ((is_granted("IS_AUTHENTICATED_FULLY")) and (app.user.email  != quack.duck.email )) or (is_granted("ROLE_ADMIN")) %}
                     <div class="messageFooter">
                         <div class="buttons">
                             <a class="button" href="{{ path('quack_newComment', {'id': quack.id}) }}"> Commenter </a>
@@ -54,7 +55,7 @@
                             {%  endif %}
                         </div>
                         <div class="marginTop">
-                            {% if ((is_granted("IS_AUTHENTICATED_FULLY")) and (app.user.email  == quack.duck.email )) or ((is_granted("IS_AUTHENTICATED_FULLY")) and (app.user.email == quackComment.duck.email)) %}
+                            {% if ((is_granted("IS_AUTHENTICATED_FULLY")) and (app.user.email  == quack.duck.email )) or ((is_granted("IS_AUTHENTICATED_FULLY")) and (app.user.email == quackComment.duck.email)) or (is_granted("ROLE_ADMIN")) %}
                                 <div>
                                     <div class="buttons">
                                         <a class="button" href="{{ path('quack_delete', {'id': quackComment.id}) }}"> Supprimer </a>

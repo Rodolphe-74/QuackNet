@@ -68,6 +68,8 @@ class QuackController extends AbstractController
         $form = $this->createForm(QuackType::class, $quack);
         $form->handleRequest($request);
 
+        $this->denyAccessUnlessGranted('quack_edit', $quack);
+
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
