@@ -11,7 +11,7 @@
 }
 
 .messageBlock{
-    width:50%;
+    width:70%;
     margin : 20px auto;
     background-color: #545150 ;
     border-radius: 10px;
@@ -83,6 +83,10 @@
     color: white;
 }
 
+.greenButton{
+    background-color: forestgreen !important;
+}
+
 .registerlink{
     color: black;
 }
@@ -104,7 +108,7 @@
 }
 
 .image{
-    border-radius: 10px;
+    border-radius: 120px;
     max-width: 100%;
     height : 120px;
 }
@@ -115,7 +119,8 @@
     color: white;
     border-radius: 5px;
     text-align: center;
-    padding:10px;
+    padding:6px;
+    height: 38px;
 }
 
 .buttonCenter{
@@ -204,4 +209,49 @@
 
 .marginTop{
     margin-top: 5px;
+}
+
+.searchBar{
+    display:flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.formLabelWidget{
+    margin : 20px 0;
+}
+
+.formLabelWidgetQuack{
+    margin : 20px 0;
+    margin-left: 10%;
+}
+
+.formImage{
+    width:90%;
+}
+
+input[type="text" i]{
+    height : 38px;
+    width : 100%;
+    border-radius: 5px;
+    border : 0.1rem solid;
+}
+
+input[type="email" i]{
+    height : 38px;
+    width : 100%;
+    border-radius: 5px;
+    border : 0.1rem solid;
+}
+
+input[type="password" i]{
+    height : 38px;
+    width : 100%;
+    border-radius: 5px;
+    border : 0.1rem solid;
+}
+
+textarea{
+    width : 90%;
+    height : 100px;
 }

@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Duck;
 use App\Form\DuckType;
+use App\Repository\QuackRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -18,10 +19,13 @@ class ProfileController extends AbstractController
     /**
      * @Route("/", name="profile")
      */
-    public function index(): Response
+    public function index(QuackRepository $quackRepository): Response
     {
+        $quacks = $quackRepository->findAll();
+
         return $this->render('profile/index.html.twig', [
             'Duck' => $this->getUser(),
+            'quacks' => $quacks,
         ]);
     }
 
@@ -48,10 +52,13 @@ class ProfileController extends AbstractController
     /**
      * @Route("/{duckname}", name="profile_id", methods={"GET","POST"})
      */
-    public function user(Duck $duck): Response
+    public function user(QuackRepository $quackRepository, Duck $duck): Response
     {
+        $quacks = $quackRepository->findAll();
+
         return $this->render('profile/index.html.twig', [
             'Duck' => $duck,
+            'quacks' => $quacks,
         ]);
     }
 }

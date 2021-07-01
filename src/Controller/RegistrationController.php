@@ -36,6 +36,9 @@ class RegistrationController extends AbstractController
             $entityManager->persist($user);
             $entityManager->flush();
             // do anything else you need here, like send an email
+//            $userName=$user->getLastname();
+//            $mail=new \Mail();
+//            $mail->send($user->getEmail(),$userName,"Bienvenue","Bonjour Monsieur $userName, votre inscription s'est bien déroulée ! ");
 
             $authenticator->authenticateUser($user,$duckAuthenticator,$request);
 

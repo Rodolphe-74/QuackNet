@@ -8,14 +8,71 @@
     {% endfor %}
 
     <h1 class="profileTitle">Register</h1>
-    <div class="center">
-{{ form_start(registrationForm) }}
+    <div class="form">
+        {{ form_start(registrationForm) }}
+        <div class="formLabelWidget">
+            <div>
+                {{ form_label(registrationForm.email) }}
+            </div>
+            <div class="">
+                {{ form_widget (registrationForm.email) }}
+            </div>
+        </div>
+        <div class="formLabelWidget">
+            <div>
+                {{ form_label(registrationForm.firstname) }}
+            </div>
+            <div class="">
+                {{ form_widget (registrationForm.firstname) }}
+            </div>
+        </div>
+        <div class="formLabelWidget">
+            <div>
+                {{ form_label(registrationForm.lastname) }}
+            </div>
+            <div class="">
+                {{ form_widget (registrationForm.lastname) }}
+            </div>
+        </div>
+        <div class="formLabelWidget">
+            <div>
+                {{ form_label(registrationForm.duckname) }}
+            </div>
+            <div class="">
+                {{ form_widget (registrationForm.duckname) }}
+            </div>
+        </div>
+        <div class="formLabelWidget">
+            <div>
+                {{ form_label(registrationForm.image) }}
+            </div>
+            <div class="">
+                {{ form_widget (registrationForm.image) }}
+            </div>
+        </div>
+        <div class="formLabelWidget">
+            <div>
+                {{ form_label(registrationForm.plainPassword) }}
+            </div>
+            <div class="">
+                {{ form_widget (registrationForm.plainPassword) }}
+            </div>
+        </div>
+        <div class="formLabelWidget">
+            <div>
+                {{ form_label(registrationForm.agreeTerms) }}
+            </div>
+            <div class="">
+                {{ form_widget (registrationForm.agreeTerms) }}
+            </div>
+        </div>
+        {{ form_end(registrationForm) }}
+    </div>
 
-{{ form_rest(registrationForm) }}
+    {{ form_rest(registrationForm) }}
+    <div class="buttonCenter">
+        <button class="profileButton blackbutton" type = "submit"> Register </button>
     </div>
-    <div class="center">
-    <button type = "submit" class="blackbutton"> Register </button>
-    </div>
-{{ form_end(registrationForm) }}
+    {{ form_end(registrationForm) }}
 
 {% endblock %}

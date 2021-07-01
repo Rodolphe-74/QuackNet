@@ -5,12 +5,14 @@
 {% block body %}
 
     <div class="profileTitle">
-    <h1>Edit Profile</h1>
+    <h2>Edit Profile</h2>
     </div>
 
     {{ include('profile/_form.html.twig', {'button_label': 'Update'}) }}
 
-    <a href="{{ path('profile') }}">back to profile</a>
+    <div class="buttonCenter">
+    <a class="profileButton" style="text-align: center" href="{{ path('profile') }}">back to profile</a>
+    </div>
 
 {#    {{ include('quack/_delete_form.html.twig') }}#}
 {% endblock %}

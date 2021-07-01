@@ -4,7 +4,24 @@
 {% block body %}
     <div class="profileTitle">
         <h3> Au fil des Quacks ... </h3>
+        <div>
+            {{ form_start(form) }}
+            <div class="searchBar">
+                <div>
+                    {{ form_widget(form) }}
+                </div>
+                <div>
+                    <button class="profileButton">{{ button_label|default('Rechercher') }}</button>
+                </div>
+            </div>
+            {{ form_end(form) }}
+        </div>
     </div>
+
+{#    <pre>#}
+{#        {{ dump(quacks) }}#}
+{#    </pre>#}
+
     {% for quack in quacks %}
         {% if (quack.parent == null) %}
             <div class="messageBlock">

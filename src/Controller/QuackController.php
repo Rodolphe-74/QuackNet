@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Quack;
 use App\Form\QuackType;
+use App\Form\SearchQuackType;
 use App\Repository\QuackRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -17,12 +18,23 @@ use Symfony\Component\Routing\Annotation\Route;
 class QuackController extends AbstractController
 {
     /**
-     * @Route("/", name="quack_index", methods={"GET"})
+     * @Route("/", name="quack_index", methods={"GET", "POST"})
      */
-    public function index(QuackRepository $quackRepository): Response
+    public function index(QuackRepository $quackRepository, Request $request): Response
     {
+        $quacks = $quackRepository->findAll();
+
+        $form = $this->createForm(SearchQuackType::class);
+
+        $search = $form -> handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid()){
+            $quacks = $quackRepository -> search($search->get('mots')->getData());
+        }
+
         return $this->render('quack/index.html.twig', [
-            'quacks' => $quackRepository->findAll(),
+            'quacks' => $quacks,
+            'form' => $form -> createView()
         ]);
     }
 
@@ -33,6 +45,7 @@ class QuackController extends AbstractController
     {
         $quack = new Quack();
         $quack->setDuck($this->getUser());
+        $quack->setCreatedAt(new \DateTime('now'));
         $form = $this->createForm(QuackType::class, $quack);
         $form->handleRequest($request);
 

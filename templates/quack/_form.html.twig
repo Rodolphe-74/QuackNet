@@ -1,4 +1,68 @@
 {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+<div class="formLabelWidgetQuack">
+    <div>
+        {{ form_label(form.content) }}
+    </div>
+    <div class="">
+        {{ form_widget (form.content) }}
+    </div>
+</div>
+<div class="formLabelWidgetQuack">
+    <div>
+        {{ form_label(form.image) }}
+    </div>
+    <div class="formImage">
+        {{ form_widget (form.image) }}
+    </div>
+</div>
+<div class="buttonCenter">
+    <button class="profileButton greenButton">{{ button_label|default('Save') }}</button>
+</div>
 {{ form_end(form) }}
+
+
+{#<div class="formLabelWidget">#}
+{#    <div>#}
+{#        {{ form_label(form.firstname) }}#}
+{#    </div>#}
+{#    <div class="">#}
+{#        {{ form_widget (form.firstname) }}#}
+{#    </div>#}
+{#</div>#}
+{#<div class="formLabelWidget">#}
+{#    <div>#}
+{#        {{ form_label(form.lastname) }}#}
+{#    </div>#}
+{#    <div class="">#}
+{#        {{ form_widget (form.lastname) }}#}
+{#    </div>#}
+{#</div>#}
+{#<div class="formLabelWidget">#}
+{#    <div>#}
+{#        {{ form_label(form.duckname) }}#}
+{#    </div>#}
+{#    <div class="">#}
+{#        {{ form_widget (form.duckname) }}#}
+{#    </div>#}
+{#</div>#}
+{#<div class="formLabelWidget">#}
+{#    <div>#}
+{#        {{ form_label(form.email) }}#}
+{#    </div>#}
+{#    <div class="">#}
+{#        {{ form_widget (form.email) }}#}
+{#    </div>#}
+{#</div>#}
+{#<div class="formLabelWidget">#}
+{#    <div>#}
+{#        {{ form_label(form.password) }}#}
+{#    </div>#}
+{#    <div class="">#}
+{#        {{ form_widget (form.password) }}#}
+{#    </div>#}
+{#</div>#}
+{#<div class="alert-danger">#}
+{#    {{  form_rest(form) }}#}
+{#</div>#}
+{#<button class="profileButton greenButton">{{ button_label|default('Save') }}</button>#}
+{#{{ form_end(form) }}#}
