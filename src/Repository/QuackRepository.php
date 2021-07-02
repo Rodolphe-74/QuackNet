@@ -24,8 +24,8 @@ class QuackRepository extends ServiceEntityRepository
      */
     public function search($mots) {
         $query = $this->createQueryBuilder('q');
-           // ->join('q.')
-dump($mots);
+        // ->join('q.')
+        dump($mots);
         if($mots != null){
             $query -> where('q.content LIKE :mots')
                 -> setParameter('mots',"%{$mots}%" );
@@ -33,6 +33,12 @@ dump($mots);
 
         return $query->getQuery()->getResult();
     }
+
+    public function findByDate() {
+        return $this->findBy(array(),array('created_at' => 'DESC'));
+    }
+
+//    public function findBydate ()
 
     // /**
     //  * @return Quack[] Returns an array of Quack objects

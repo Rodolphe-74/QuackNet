@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Duck;
 use App\Form\RegistrationFormType;
 use App\Security\DuckAuthenticator;
+use App\Service\MailSender;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -39,6 +40,7 @@ class RegistrationController extends AbstractController
 //            $userName=$user->getLastname();
 //            $mail=new \Mail();
 //            $mail->send($user->getEmail(),$userName,"Bienvenue","Bonjour Monsieur $userName, votre inscription s'est bien déroulée ! ");
+//            $mailSender->welcome($user);
 
             $authenticator->authenticateUser($user,$duckAuthenticator,$request);
 
@@ -49,4 +51,12 @@ class RegistrationController extends AbstractController
             'registrationForm' => $form->createView(),
         ]);
     }
+
+//    /**
+//     * @param MailSender $mailSender
+//     * @Route("/test")
+//     */
+//    public function test(MailSender $mailSender){
+//        $mailSender->welcome($this->getUser());
+//    }
 }

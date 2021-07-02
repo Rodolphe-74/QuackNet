@@ -1,5 +1,5 @@
 .background{
-    height:3000px;
+    min-height:100vh;
     background-color: #BCC0BB;
     display:flex;
     justify-content: center;

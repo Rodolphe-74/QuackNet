@@ -66,13 +66,13 @@
                 {{ form_widget (registrationForm.agreeTerms) }}
             </div>
         </div>
+        {{ form_rest(registrationForm) }}
+        <div class="buttonCenter">
+            <button class="profileButton blackbutton" type = "submit"> Register </button>
+        </div>
         {{ form_end(registrationForm) }}
     </div>
 
-    {{ form_rest(registrationForm) }}
-    <div class="buttonCenter">
-        <button class="profileButton blackbutton" type = "submit"> Register </button>
-    </div>
-    {{ form_end(registrationForm) }}
+
 
 {% endblock %}

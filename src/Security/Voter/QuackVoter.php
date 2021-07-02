@@ -29,6 +29,9 @@ class QuackVoter extends Voter
             return false;
         }
 
+        if (in_array('ROLE_ADMIN',$user->getRoles())){
+            return true;
+        }
         /**
          * @var Quack $quack
          */

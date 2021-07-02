@@ -22,7 +22,7 @@ class QuackController extends AbstractController
      */
     public function index(QuackRepository $quackRepository, Request $request): Response
     {
-        $quacks = $quackRepository->findAll();
+        $quacks = $quackRepository->findByDate();
 
         $form = $this->createForm(SearchQuackType::class);
 
@@ -117,6 +117,7 @@ class QuackController extends AbstractController
         $comment = new Quack();
         $comment->setParent($quack);
         $comment->setDuck($this->getUser());
+        $comment->setCreatedAt(new \DateTime('now'));
         $form = $this->createForm(QuackType::class, $comment);
         $form->handleRequest($request);
 
